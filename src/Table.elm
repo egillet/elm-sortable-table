@@ -603,10 +603,10 @@ findSorter selectedColumn columnData =
 -}
 type Sorter data
     = None
-    | Increasing Maybe (List data -> List data)
-    | Decreasing Maybe (List data -> List data)
-    | IncOrDec Maybe (List data -> List data)
-    | DecOrInc Maybe (List data -> List data)
+    | Increasing (Maybe (List data -> List data))
+    | Decreasing (Maybe (List data -> List data))
+    | IncOrDec (Maybe (List data -> List data))
+    | DecOrInc (Maybe (List data -> List data))
 
 
 {-| A sorter for columns that are unsortable. Maybe you have a column in your
@@ -627,7 +627,7 @@ want a table of people, sorted alphabetically by name, we would say this:
 -}
 increasingBy : (data -> comparable) -> Sorter data
 increasingBy toComparable =
-    Increasing Just (List.sortBy toComparable)
+    Increasing <| Just (List.sortBy toComparable)
 
 
 {-| Create a sorter that can only display the data in decreasing order. If we
@@ -640,7 +640,7 @@ would say this:
 -}
 decreasingBy : (data -> comparable) -> Sorter data
 decreasingBy toComparable =
-    Decreasing Just (List.sortBy toComparable)
+    Decreasing <| Just (List.sortBy toComparable)
 
 
 {-| Sometimes you want to be able to sort data in increasing *or* decreasing
@@ -654,7 +654,7 @@ This function lets you see both, starting with decreasing order.
 -}
 decreasingOrIncreasingBy : (data -> comparable) -> Sorter data
 decreasingOrIncreasingBy toComparable =
-    DecOrInc Just (List.sortBy toComparable)
+    DecOrInc <| Just (List.sortBy toComparable)
 
 
 {-| Sometimes you want to be able to sort data in increasing *or* decreasing
@@ -667,7 +667,7 @@ sort by best time by default, but also see the other order.
 -}
 increasingOrDecreasingBy : (data -> comparable) -> Sorter data
 increasingOrDecreasingBy toComparable =
-    IncOrDec Just (List.sortBy toComparable)
+    IncOrDec <| Just (List.sortBy toComparable)
 
 
 decreasingNo : Sorter data
@@ -676,9 +676,7 @@ decreasingNo =
 
 
 decreasingOrIncreasingNo : Sorter data
-
-
-decreasingOrIncreasingBy =
+decreasingOrIncreasingNo =
     DecOrInc Nothing
 
 
