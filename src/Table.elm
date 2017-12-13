@@ -674,21 +674,42 @@ increasingOrDecreasingBy toComparable =
     IncOrDec <| Just (List.sortBy toComparable)
 
 
+{-| Create a sorter that can only display the data in increasing order.
+This sorter manages only the header and the message send when one clicks on the header,
+but not the sorting itself (in order to manage pagination).
+-}
 increasingNo : Sorter data
 increasingNo =
     Increasing Nothing
 
 
+{-| Create a sorter that can only display the data in decreasing order.
+This sorter manages only the header and the message send when one clicks on the header,
+but not the sorting itself (in order to manage pagination).
+-}
 decreasingNo : Sorter data
 decreasingNo =
     Decreasing Nothing
 
 
+{-| Sometimes you want to be able to sort data in increasing *or* decreasing
+order. Maybe you have a bunch of data about orange juice, and you want to know
+both which has the most sugar, and which has the least sugar. Both interesting!
+This function lets you see both, starting with decreasing order. This sorter
+manages only the header and the message send when one clicks on the header,
+but not the sorting itself (in order to manage pagination).
+-}
 decreasingOrIncreasingNo : Sorter data
 decreasingOrIncreasingNo =
     DecOrInc Nothing
 
 
+{-| Sometimes you want to be able to sort data in increasing *or* decreasing
+order. Maybe you have race times for the 100 meter sprint. This function lets
+sort by best time by default, but also see the other order. This sorter manages
+only the header and the message send when one clicks on the header, but not
+the sorting itself (in order to manage pagination).
+-}
 increasingOrDecreasingNo : Sorter data
 increasingOrDecreasingNo =
     IncOrDec Nothing
