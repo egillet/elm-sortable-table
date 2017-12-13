@@ -64,7 +64,9 @@ is not that crazy.
 
 @docs Column, customColumn, veryCustomColumn,
   Sorter, unsortable, increasingBy, decreasingBy,
-  increasingOrDecreasingBy, decreasingOrIncreasingBy
+  increasingOrDecreasingBy, decreasingOrIncreasingBy,
+  increasingNo, decreasingNo, increasingOrDecreasingNo,
+  decreasingOrIncreasingNo
 
 ## Custom Tables
 
