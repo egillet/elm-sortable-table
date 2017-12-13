@@ -5,7 +5,7 @@ module Table
         , stringColumn
         , intColumn
         , floatColumn
-        , State
+        , State(..)
         , initialSort
         , Column
         , customColumn
@@ -16,6 +16,10 @@ module Table
         , decreasingBy
         , increasingOrDecreasingBy
         , decreasingOrIncreasingBy
+        , increasingNo
+        , decreasingNo
+        , increasingOrDecreasingNo
+        , decreasingOrIncreasingNo
         , Config
         , customConfig
         , Customizations
@@ -668,6 +672,11 @@ sort by best time by default, but also see the other order.
 increasingOrDecreasingBy : (data -> comparable) -> Sorter data
 increasingOrDecreasingBy toComparable =
     IncOrDec <| Just (List.sortBy toComparable)
+
+
+increasingNo : Sorter data
+increasingNo =
+    Increasing Nothing
 
 
 decreasingNo : Sorter data
