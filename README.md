@@ -4,7 +4,7 @@ Create sortable tables for data of any shape.
 
 This library also lets you customize `<caption>`, `<tbody>`, `<tr>`, etc. for your particular needs. So it is pretty easy to do whatever crazy CSS trickery is needed to get the exact table you want.
 
-This reason of the fork of the evancz/elm-sortable-table is to be able to present a big collection of data using pagination. The Evan version is responsible of the sort, this one can delegate the sorting if the one chooses the new `Sorter`: `increasingNo`, `decreasingNo`, `increasingOrDecreasingNo` or `decreasingOrIncreasingNo`.
+This reason of the fork of this evancz/elm-sortable-table is to be able to present a big collection of data using pagination. The Evan version is responsible of the sort, this one can delegate the sorting if the one chooses the new `Sorter`: `increasingNo`, `decreasingNo`, `increasingOrDecreasingNo` or `decreasingOrIncreasingNo`.
  
 
 
